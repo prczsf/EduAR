@@ -6,6 +6,10 @@
          to allow setting breakpoints, to provide hot reload, etc.
     -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-sdk android:minSdkVersion="24" />
+    <uses-feature android:name="android.hardware.camera.ar" />
+
 
     <!-- io.flutter.app.FlutterApplication is an android.app.Application that
          calls FlutterMain.startInitialization(this); in its onCreate method.
@@ -33,6 +37,7 @@
             <meta-data
                 android:name="flutterEmbedding"
                 android:value="2" />
+            <meta-data android:name="com.google.ar.core" android:value="required" />
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

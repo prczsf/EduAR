@@ -31,7 +31,13 @@ class IndexState extends State<IndexPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Agora Flutter QuickStart'),
+        centerTitle: true,
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        title: Text(
+          'Enter the class code',
+          style: TextStyle(color: Colors.white),
+        ),
       ),
       body: Center(
         child: Container(
@@ -42,23 +48,33 @@ class IndexState extends State<IndexPage> {
               Row(
                 children: <Widget>[
                   Expanded(
-                      child: TextField(
+                      child: Theme(
+          data: new ThemeData(
+            primaryColor: Color(0xff158274),
+            primaryColorDark: Color(0xff158274),
+          ),
+                                              child: TextField(
+                                                
+                         autofocus: true,
                     controller: _channelController,
                     decoration: InputDecoration(
-                      errorText:
-                          _validateError ? 'Channel name is mandatory' : null,
-                      border: UnderlineInputBorder(
-                        borderSide: BorderSide(width: 1),
-                      ),
-                      hintText: 'Channel name',
+                      fillColor: Colors.white,
+                      hoverColor: Colors.white,
+                      labelText: 'Class Code',
+                        focusColor: Colors.white,
+                        errorText:
+                            _validateError ? 'Channel name is mandatory' : null,
+                        border: OutlineInputBorder(),
+                        
                     ),
-                  ))
+                  ),
+                      ))
                 ],
               ),
               Column(
                 children: [
                   ListTile(
-                    title: Text(ClientRole.Broadcaster.toString()),
+                    title: Text('Teacher'),
                     leading: Radio(
                       value: ClientRole.Broadcaster,
                       groupValue: _role,
@@ -70,7 +86,7 @@ class IndexState extends State<IndexPage> {
                     ),
                   ),
                   ListTile(
-                    title: Text(ClientRole.Audience.toString()),
+                    title: Text('Student'),
                     leading: Radio(
                       value: ClientRole.Audience,
                       groupValue: _role,
@@ -89,9 +105,10 @@ class IndexState extends State<IndexPage> {
                   children: <Widget>[
                     Expanded(
                       child: RaisedButton(
+                        
                         onPressed: onJoin,
-                        child: Text('Join'),
-                        color: Colors.blueAccent,
+                        child: Text('Join meeting'),
+                        color: Color(0xff158274),
                         textColor: Colors.white,
                       ),
                     )
@@ -129,8 +146,9 @@ class IndexState extends State<IndexPage> {
   }
 
   Future<void> _handleCameraAndMic() async {
-    await PermissionHandler().requestPermissions(
-      [PermissionGroup.camera, PermissionGroup.microphone],
-    );
+    
+    await 
+      [Permission.camera, Permission.microphone]
+    .request();
   }
 }

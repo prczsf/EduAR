@@ -1,10 +1,8 @@
 import 'dart:async';
 
-//import 'package:agora_flutter_quickstart/src/pages/ar.dart';
+import 'package:agora_flutter_quickstart/src/pages/ar.dart';
 import 'package:agora_rtc_engine/agora_rtc_engine.dart';
 import 'package:flutter/material.dart';
-import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart';
-import 'package:vector_math/vector_math_64.dart' as vector;
 
 import '../utils/settings.dart';
 
@@ -23,28 +21,12 @@ class CallPage extends StatefulWidget {
 }
 
 class _CallPageState extends State<CallPage> {
-  ArCoreController arCoreController;
-
-  _onArCoreViewCreated(ArCoreController _arCoreController) {
-    arCoreController = _arCoreController;
-    _addSphere(arCoreController);
-  }
-
-  _addSphere(ArCoreController _arCoreController) {
-    final material = ArCoreMaterial(color: Colors.deepPurple);
-    final sphere = ArCoreSphere(materials: [material], radius: 0.2);
-
-    final node = ArCoreNode(shape: sphere, position: vector.Vector3(0, 0, -1));
-
-    _arCoreController.addArCoreNode(node);
-  }
   static final _users = <int>[];
   final _infoStrings = <String>[];
   bool muted = false;
 
   @override
   void dispose() {
-     arCoreController.dispose();
     // clear users
     _users.clear();
     // destroy sdk
@@ -174,25 +156,16 @@ class _CallPageState extends State<CallPage> {
     final views = _getRenderViews();
     switch (views.length) {
       case 1:
-      setState(() {
-        final info = 'First';
-        _infoStrings.add(info);
-      });
-      return Container(
+        return Container(
             child: Column(
-          children: <Widget>[_videoView(ArCoreView(onArCoreViewCreated: _onArCoreViewCreated))],
+          children: <Widget>[_videoView(views[0])],
         ));
-       // return ArCoreView(onArCoreViewCreated: _onArCoreViewCreated);
       case 2:
-       setState(() {
-        final info = 'Second';
-        _infoStrings.add(info);
-      });
         return Container(
             child: Column(
           children: <Widget>[
-           _videoView(ArCoreView(onArCoreViewCreated: _onArCoreViewCreated)),
-            _expandedVideoRow([views[1]]),
+            _expandedVideoRow([views[0]]),
+            _expandedVideoRow([views[1]])
           ],
         ));
       case 3:
@@ -318,7 +291,11 @@ class _CallPageState extends State<CallPage> {
 
   void _onCallEnd(BuildContext context) {
     Navigator.pop(context);
-     
+     Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MyHomePage(),
+        ));
   }
 
   void _onToggleMute() {
@@ -342,15 +319,14 @@ class _CallPageState extends State<CallPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('EduAR'),
-        centerTitle: true,
+        title: Text('Agora Flutter QuickStart'),
       ),
       backgroundColor: Colors.black,
       body: Center(
         child: Stack(
           children: <Widget>[
             _viewRows(),
-            //_panel(),
+            _panel(),
             _toolbar(),
           ],
         ),
