@@ -1,4 +1,5 @@
 # EduAR Flutter Quickstart
+### Video Demo: https://www.youtube.com/watch?v=WTCPNuRQn04
 <p float="left">
   
 <img width="200" alt="Screenshot 2020-09-28 at 1 30 15 AM" src="https://user-images.githubusercontent.com/29782913/98735995-3dac4c80-23ca-11eb-8e40-fea3dc062b1e.png">
