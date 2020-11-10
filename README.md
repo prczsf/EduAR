@@ -1,8 +1,10 @@
 # EduAR Flutter Quickstart
 <p float="left">
   
-<img width="100" alt="Screenshot 2020-09-28 at 1 30 15 AM" src="https://user-images.githubusercontent.com/29782913/98735995-3dac4c80-23ca-11eb-8e40-fea3dc062b1e.png">
-  <img width="100" alt="Screenshot 2020-09-28 at 1 30 21 AM" src="https://user-images.githubusercontent.com/29782913/98736080-5a488480-23ca-11eb-8750-14ce6d5b3248.png">
+<img width="200" alt="Screenshot 2020-09-28 at 1 30 15 AM" src="https://user-images.githubusercontent.com/29782913/98735995-3dac4c80-23ca-11eb-8e40-fea3dc062b1e.png">
+  <img width="200" alt="Screenshot 2020-09-28 at 1 30 21 AM" src="https://user-images.githubusercontent.com/29782913/98736080-5a488480-23ca-11eb-8750-14ce6d5b3248.png">
+  <img width="200" alt="Screenshot 2020-09-28 at 1 30 27 AM" src="https://user-images.githubusercontent.com/29782913/98736398-c1fecf80-23ca-11eb-9193-2cef0003585c.png">
+
 
 </p>
 
