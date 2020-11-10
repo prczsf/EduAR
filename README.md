@@ -1,4 +1,4 @@
-# Agora Flutter Quickstart
+# EduAR Flutter Quickstart
 
 ## Inspiration
 While coronavirus continues to spread across the globe, many countries have decided to close schools as part of a social distancing policy in order to slow transmission of the virus.
@@ -34,10 +34,6 @@ I am super proud to say that I showed this app to Mr Manish who is the head of a
 ## What I learned
 
 Honestly, it was a roller coaster ride and I would like to thank Agora team as this project helped me push my limits as working on app catering to children can be pretty challenging while I also learned the implementation of AR and the impact it can have on our education system
-
-## What's next for EduAR
-
-We want to launch it in the play store and tie-up with a school to implement our product. We are awestruck with our product's future potential and would like to be one of the pioneers of bringing change in children's education especially during these testing times 
 
 ## License
 
